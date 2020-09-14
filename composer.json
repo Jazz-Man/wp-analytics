@@ -1,0 +1,50 @@
+{
+    "name": "jazzman/wp-analytics",
+    "type": "wordpress-muplugin",
+    "description": "wp-analytics",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vasyl Sokolyk",
+            "email": "vsokolyk@gmail.com"
+        }
+    ],
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "classmap-authoritative": true
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "ext-intl": "*",
+        "composer/installers": "^1",
+        "jazzman/autoload-interface": "^0.1.0"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master",
+        "roots/wordpress": "^5.5"
+    },
+    "extra": {
+        "installer-paths": {
+            "vendor/wp/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+            "vendor/wp/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "vendor/wp/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+        },
+        "wordpress-install-dir": "vendor/wp"
+    },
+    "suggest": {
+        "jazzman/wp-performance-shortcode": "Better Shortcode Parser"
+    },
+    "autoload": {
+        "psr-4": {
+            "JazzMan\\Analytics\\":"src"
+        }
+    }
+}
